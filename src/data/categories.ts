@@ -1,8 +1,7 @@
 // List of categories for blog posts
 export const CATEGORIES = [
-	'Category 1',
-	'Category 2',
-	'Category 3',
-	'Category 4',
-	'Category 5'
+	'Análisis y Diseño de Bases de Datos',
+	'Desarrollo de Software',
+	'Requisitos del Software',
+	'Negociación de la Tecnología e Implementación'
 ] as const
