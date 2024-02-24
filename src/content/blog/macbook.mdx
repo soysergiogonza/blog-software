@@ -1,190 +1,61 @@
 ---
-title: 'MacBook'
-description: 'The new MacBook Pro 2022 is here. With the Apple M2 chip, a new design, and more, the new MacBook Pro is the best laptop Apple has ever made.'
-pubDate: 'Jul 02 2022'
-heroImage: '../../assets/images/book.jpg'
-category: 'Category 4'
-tags: ['PC']
+title: 'Presupuestos'
+description: 'Para el diseño, construcción y presentación de la propuesta técnica de servicios de software, se deben considerar aspectos y elementos de suma importancia que dan carácter a la misma y que otorgan, tanto al oferente como al cliente, seguridad y confianza.'
+pubDate: 'Febrero 24 2024'
+heroImage: '../../assets/images/negotiation.jpg'
+category: 'Negociación de la Tecnología e Implementación'
+tags: ['Negociación de la Tecnología']
 ---
 
-**If you know HTML, you already know enough to write your first Astro component.**
+## Introducción
 
-Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX](#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
+**Para el diseño, construcción y presentación de la propuesta técnica de servicios de software, se deben considerar aspectos y elementos de suma importancia que dan carácter a la misma y que otorgan, tanto al oferente como al cliente, seguridad y confianza.**
 
-## JSX-like Expressions
+**Para el éxito de una propuesta técnica se deberá tener claridad en aspectos vitales como:**
 
-You can define local JavaScript variables inside of the frontmatter component script between the two code fences (`---`) of an Astro component. You can then inject these variables into the component's HTML template using JSX-like expressions!
+1. Costos y Presupuestos.
+2. El alcance del proyecto.
+3. Condiciones de entrega.
+4. Características de las necesidades del cliente.
+5. Características de la tecnología a implementar.
 
-:::note[dynamic vs reactive]
-Using this approach, you can include **dynamic** values that are calculated in the frontmatter. But once included, these values are not **reactive** and will never change. Astro components are templates that only run once, during the rendering step.
+### Presupuesto
 
-See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
-:::
+El presupuesto es un documento que refleja el costo total del proyecto, el cual debe ser presentado de forma clara y detallada, de tal manera que el cliente pueda entenderlo y compararlo con otras propuestas. El presupuesto debe incluir:
 
-### Variables
+1. Costos de desarrollo.
+2. Costos de mantenimiento.
+3. Costos de licencias.
+4. Costos de capacitación.
+5. Costos de soporte.
 
-Local variables can be added into the HTML using the curly braces syntax:
+Entonces en los primeros acercamientos con el posible cliente tenemos que indagar sobre la capacidad económica que
+tiene para invertir en el proyecto, ya que de esto dependerá el alcance del mismo; recordemos que esto nos va a
+permitir adecuarnos a las necesidades del cliente y sus recursos.
 
-```astro
----
-const name = 'Astro'
----
+### Análisis del Presupuesto
 
-<div>
-	<h1>Hello {name}!</h1>
-	<!-- Outputs <h1>Hello Astro!</h1> -->
-</div>
-```
+Teóricamente, el presupuesto es un plan enfocado en cumplir una meta propuesta.
+Se representa en valores y términos financieros que deben cumplirse en cierto tiempo y bajo las condiciones
+establecidas.
+Podemos tener en cuenta los siguientes aspectos para el análisis del presupuesto:
 
-### Dynamic Attributes
+- **Establecer una buena relación con el cliente:**
+  Esto nos permitirá tener una comunicación más fluida y efectiva, lo que nos ayudará a entender mejor sus necesidades
+  y a ofrecerle soluciones más acertadas.
 
-Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
+- **Conocer el mercado:**
+  Identificar a los interesados o stakeholders, es decir, a las personas que tienen interés en el proyecto.
+  La propuesta debe realizarse teniendo en cuenta a la persona que se entrevista, ya que cada funcionario tiene
+  expectativas y necesidades diferentes de acuerdo a su cargo y rol dentro de la empresa.
+  Por ejemplo, el gerente de la empresa puede estar interesado en la rentabilidad del proyecto, mientras que el jefe
+  de sistemas puede estar interesado en la tecnología que se va a implementar.
 
-```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
----
-const name = 'Astro'
----
+- **Identificar las necesidades del cliente:**
+  Solicitar información sobre cómo interactúa la compañía, su modelo de negocios, procesos y procedimientos,
+  comprendiendo necesidades del cliente y sugiriendo nuevas soluciones a problemas que aún no detectan.
 
-<h1 class={name}>Attribute expressions are supported</h1>
-
-<MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
-```
-
-:::caution
-HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
-For example, you can't assign an event handler to an HTML element in an Astro component:
-
-```astro
----
-// dont-do-this.astro
-function handleClick() {
-	console.log('button clicked!')
-}
----
-
-<!-- ❌ This doesn't work! ❌ -->
-<button onClick={handleClick}>Nothing will happen when you click me!</button>
-```
-
-Instead, use a client-side script to add the event handler, like you would in vanilla JavaScript:
-
-```astro
----
-// do-this-instead.astro
----
-
-<button id='button'>Click Me</button>
-<script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
-</script>
-```
-
-:::
-
-### Dynamic HTML
-
-Local variables can be used in JSX-like functions to produce dynamically-generated HTML elements:
-
-```astro title="src/components/DynamicHtml.astro" "{item}"
----
-const items = ['Dog', 'Cat', 'Platypus']
----
-
-<ul>
-	{items.map((item) => <li>{item}</li>)}
-</ul>
-```
-
-Astro can conditionally display HTML using JSX logical operators and ternary expressions.
-
-```astro title="src/components/ConditionalHtml.astro" "visible"
----
-const visible = true
----
-
-{visible && <p>Show me!</p>}
-
-{visible ? <p>Show me!</p> : <p>Else show me!</p>}
-```
-
-### Dynamic Tags
-
-You can also use dynamic tags by setting a variable to an HTML tag name or a component import:
-
-```astro title="src/components/DynamicTags.astro" /Element|(?<!My)Component/
----
-import MyComponent from './MyComponent.astro'
-const Element = 'div'
-const Component = MyComponent
----
-
-<Element>Hello!</Element>
-<!-- renders as <div>Hello!</div> -->
-<Component />
-<!-- renders as <MyComponent /> -->
-```
-
-When using dynamic tags:
-
-- **Variable names must be capitalized.** For example, use `Element`, not `element`. Otherwise, Astro will try to render your variable name as a literal HTML tag.
-
-- **Hydration directives are not supported.** When using [`client:*` hydration directives](/en/core-concepts/framework-components/#hydrating-interactive-components), Astro needs to know which components to bundle for production, and the dynamic tag pattern prevents this from working.
-
-### Fragments
-
-Astro supports using either `<Fragment> </Fragment>` or the shorthand `<> </>`.
-
-Fragments can be useful to avoid wrapper elements when adding [`set:*` directives](/en/reference/directives-reference/#sethtml), as in the following example:
-
-```astro title="src/components/SetHtml.astro" "Fragment"
----
-const htmlString = '<p>Raw HTML content</p>'
----
-
-<Fragment set:html={htmlString} />
-```
-
-### Differences between Astro and JSX
-
-Astro component syntax is a superset of HTML. It was designed to feel familiar to anyone with HTML or JSX experience, but there are a couple of key differences between `.astro` files and JSX.
-
-#### Attributes
-
-In Astro, you use the standard `kebab-case` format for all HTML attributes instead of the `camelCase` used in JSX. This even works for `class`, which is not supported by React.
-
-```jsx del={1} ins={2} title="example.astro"
-<div className="box" dataValue="3" />
-<div class="box" data-value="3" />
-```
-
-#### Multiple Elements
-
-An Astro component template can render multiple elements with no need to wrap everything in a single `<div>` or `<>`, unlike JavaScript or JSX.
-
-```astro title="src/components/RootElements.astro"
----
-// Template with multiple elements
----
-
-<p>No need to wrap elements in a single containing element.</p>
-<p>Astro supports multiple root elements in a template.</p>
-```
-
-#### Comments
-
-In Astro, you can use standard HTML comments or JavaScript-style comments.
-
-```astro title="example.astro"
----
-
----
-
-<!-- HTML comment syntax is valid in .astro files -->{/* JS comment syntax is also valid */}
-```
-
-:::caution
-HTML-style comments will be included in browser DOM, while JS ones will be skipped. To leave TODO messages or other development-only explanations, you may wish to use JavaScript-style comments instead.
-:::
+- **Conocer el presupuesto del cliente:**
+  Solicitar conocer el presupuesto que el cliente tiene destinado para ejecutar este proyecto.
+  En algunos casos hay que amoldarse a él y cubrir necesidades de mayor prioridad y en otros casos se puede negociar
+  ofreciendo más servicios o módulos extras, generado así más recursos.
