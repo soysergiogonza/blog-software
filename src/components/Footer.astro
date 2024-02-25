@@ -2,6 +2,12 @@
 const today = new Date()
 ---
 
-<footer class='flex justify-center items-center w-full px-16 h-28 border-t-2'>
-	&copy; {today.getFullYear()} Your Name. All rights reserved.
+<footer class='flex gap-2 justify-center items-center w-full px-16 h-28 border-t-2'>
+	<span>
+		&copy; {today.getFullYear()}
+	</span>
+	<a class='text-amber-600 font-bold' href='https://www.sergiogonzalez.tech/' target='_blank'
+		>Sergio González Sánchez</a
+	>
+	<span>Todos los derechos reservados</span>
 </footer>
