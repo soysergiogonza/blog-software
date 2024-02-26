@@ -1,190 +1,249 @@
 ---
-title: 'TypeScript2'
-description: 'TypeScript2 description here 2'
-pubDate: 'Jul 02 2022'
-heroImage: '../../assets/images/placeholder-about.jpg'
-category: 'Análisis y Diseño de Bases de Datos'
-tags: ['JavaScript', 'css', 'HTML5', 'GitHub']
+title: 'HTML'
+description: 'Hyper Text Markup Language'
+pubDate: 'Febrero 25 2024'
+heroImage: '../../../public/assets/images/html.jpg'
+category: 'Desarrollo de Software'
+tags: ['HTML']
 ---
 
-**If you know HTML, you already know enough to write your first Astro component.**
+## Qué es HTML
 
-Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX](#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
+**HTML(Lenguaje de Marcado de Hipertexto)** es el componente más básico de la Web.
+Define el significado y la estructura del contenido, aunque generalmente se combina con otras tecnologías para
+describir la apariencia de una página web con [CSS](https://developer.mozilla.org/es/docs/Web/CSS) o la funcionalidad
+con [JS](https://developer.mozilla.org/es/docs/Web/JavaScript)\
 
-## JSX-like Expressions
+HTML utiliza `markups` para etiquetar el contenido lo que le indicará al navegador cómo mostrar texto, imágenes y otras
+formas de medios como audio y video.
+Podríamos decir que es como el esqueleto del cuerpo, porque le da la estructura del sitio web, cada sitio que visitamos
+está construido usando una base en HTML que maneja la estructura y el contenido del sitio.
 
-You can define local JavaScript variables inside of the frontmatter component script between the two code fences (`---`) of an Astro component. You can then inject these variables into the component's HTML template using JSX-like expressions!
+[//]: # 'HTML utiliza  para etiquetar texto, imágenes y otro contenido para mostrarlo en un navegador Web.'
 
-:::note[dynamic vs reactive]
-Using this approach, you can include **dynamic** values that are calculated in the frontmatter. But once included, these values are not **reactive** and will never change. Astro components are templates that only run once, during the rendering step.
+HTML incluye `elementos` o `etiquetas`. Las etiquetas son palabras clave rodeadas por corchetes angulares, como `<html>`.
+Algunas etiquetas HTML son: `<body>`, `<header>`, `<head>`, `<title>`, `<footer>`, `<section>`.
+`<article>`,`<div>`, `<h1>`,`<aside>`, `<details>`, `<summary>` etc.
 
-See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
-:::
+En este enlace puedes descargar un CheatSheet de HTML [HTML CheatSheet](https://htmlcheatsheet.com/HTML-Cheat-Sheet.pdf/)
+![Alt text](../../../public/assets/images/html-skeleton.jpeg 'HTML & CSS Difference')
 
-### Variables
+## Anatomía de una etiqueta HTML
 
-Local variables can be added into the HTML using the curly braces syntax:
+En `HMTL`, la mayoría de los elementos se representan mediante una etiqueta de apertura y una de cierre, en el medio
+de ambas etiquetas se encuentra el contenido del elemento.
 
-```astro
----
-const name = 'Astro'
----
-
-<div>
-	<h1>Hello {name}!</h1>
-	<!-- Outputs <h1>Hello Astro!</h1> -->
-</div>
+```html
+<etiqueta>Contenido</etiqueta>
 ```
 
-### Dynamic Attributes
+![Alt text](../../../public/assets/images/HTML-anatomy.png 'HTML Anatomy')
 
-Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
+### Etiqueta de apertura
 
-```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
----
-const name = 'Astro'
----
+Esta etiqueta indica el comienzo de un elemento `HTML` y su tipo; se escribe entre corchetes angulares.\
+La siguiente es una etiqueta de apertura de tipo párrafo.
 
-<h1 class={name}>Attribute expressions are supported</h1>
-
-<MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
+```html
+<p></p>
 ```
 
-:::caution
-HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
-For example, you can't assign an event handler to an HTML element in an Astro component:
+### Contenido
 
-```astro
----
-// dont-do-this.astro
-function handleClick() {
-	console.log('button clicked!')
-}
----
+Es el texto o los elementos anidados que se encuentran entre las etiquetas de apertura y cierre.
+Es importante que se **destaque** que dentro del contenido de una etiqueta, se pueden anidar otras etiquetas.
 
-<!-- ❌ This doesn't work! ❌ -->
-<button onClick={handleClick}>Nothing will happen when you click me!</button>
+```html
+<p>
+	<span>Esto es una etiqueta `span` anidada dentro de un párrafo</span>
+</p>
 ```
 
-Instead, use a client-side script to add the event handler, like you would in vanilla JavaScript:
+### Etiqueta de cierre
 
-```astro
----
-// do-this-instead.astro
----
+Esta etiqueta indica el final de un elemento `HTML` y su tipo; se escribe entre corchetes angulares, pero también
+incluye una barra inclinada antes del nombre del elemento.
+La siguiente es una etiqueta de cierre de tipo párrafo.
 
-<button id='button'>Click Me</button>
-<script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
-</script>
+```html
+</p>
 ```
 
-:::
+### Elementos vacíos
 
-### Dynamic HTML
+Algunos elementos `HTML` no tienen contenido y solo tienen una etiqueta de apertura.
+Estos se denominan elementos vacíos y no tienen una etiqueta de cierre.
+Por ejemplo, la etiqueta `img` que se utiliza para mostrar imágenes, podemos notar que no tiene una etiqueta de
+cierre; sin embargo, al final de la etiqueta de apertura se le agrega un slash `/` para indicar que es un elemento
+vacío.
+Este `slash` es opcional en `HTML`, pero es recomendable agregarlo porque en algunas librerías como `React`
+es obligatorio su uso y también nos ayuda a mantener un código limpio y legible.
 
-Local variables can be used in JSX-like functions to produce dynamically-generated HTML elements:
-
-```astro title="src/components/DynamicHtml.astro" "{item}"
----
-const items = ['Dog', 'Cat', 'Platypus']
----
-
-<ul>
-	{items.map((item) => <li>{item}</li>)}
-</ul>
+```html
+<img src="ruta-de-la-imagen.jpg" alt="Texto alternativo" />
 ```
 
-Astro can conditionally display HTML using JSX logical operators and ternary expressions.
+### Atributos
 
-```astro title="src/components/ConditionalHtml.astro" "visible"
----
-const visible = true
----
+Los atributos proporcionan información adicional sobre un elemento, se colocan en la etiqueta de apertura y
+generalmente constan de un nombre y un valor.
+Además, las etiquetas pueden tener uno o varios atributos, por ejemplo, la etiqueta `img` tiene dos atributos que
+podría decir que son obligatorios, `src` y `alt`, el primero para indicar la ruta de la imagen y el segundo para
+colocar un texto alternativo en caso de que la imagen no se pueda mostrar.
+El texto alternativo es importante para la [Accesibilidad](https://developer.mozilla.org/es/docs/Web/Accessibility)
+ya que las personas con discapacidad visual pueden usar un lector de pantalla o `Screen Reader` para navegar por la web
+y el texto alternativo les ayudará a comprender el contenido de la imagen.\
 
-{visible && <p>Show me!</p>}
+> Existen muchos atributos en `HTML`, pero estos son algunos de los más comunes:
 
-{visible ? <p>Show me!</p> : <p>Else show me!</p>}
+- `id`: Este atributo proporciona un identificador único a un elemento `HTML`.
+  Los identificadores son útiles para aplicar estilos específicos a un **SOLO** elemento.
+  Cuando hablamos de identificadores únicos, nos referimos a que estos **identificadores** no se pueden repetir en el
+  mismo documento como si lo pueden hacer las clases.
+
+- `class`: Este atributo se utiliza para especificar una o más clases para un elemento `HTML`, que luego puede ser
+  referenciado por `CSS` o `JS`, para aplicar estilos o comportamientos específicos a un grupo de elementos.
+
+- `style`: Este atributo se utiliza para aplicar estilos en línea a un elemento `HTML`.
+
+- `title`: Este atributo proporciona información adicional sobre un elemento `HTML` cuando el usuario pasa el cursor
+  sobre el elemento.
+
+- `href`: Este atributo se utiliza para especificar la URL de destino de un enlace, se utiliza en la etiqueta `<a>`.
+
+## Anatomía de un documento HTML
+
+```html
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+</html>
 ```
 
-### Dynamic Tags
+### `<!DOCTYPE html>`
 
-You can also use dynamic tags by setting a variable to an HTML tag name or a component import:
+En este ejemplo, nuestro documento HTML comienza con la declaración `<!DOCTYPE html>`.
+Es una instrucción para el navegador sobre qué versión de HTML está utilizando la página.
 
-```astro title="src/components/DynamicTags.astro" /Element|(?<!My)Component/
----
-import MyComponent from './MyComponent.astro'
-const Element = 'div'
-const Component = MyComponent
----
+> HTML ha experimentado varias actualizaciones a lo largo de los años con cada nueva versión, introduciendo cambios y
+> mejoras significativas.
 
-<Element>Hello!</Element>
-<!-- renders as <div>Hello!</div> -->
-<Component />
-<!-- renders as <MyComponent /> -->
+Aquí te proporciono un resumen de las versiones anteriores de HTML:
+
+1. HTML 2.0 (1995): Esta fue la primera versión estándar de HTML, que introdujo el soporte para formularios y tablas.
+2. HTML 3.2 (1997): En esta versión se agregó soporte para más estilos y scripts.
+3. HTML 4.01 (1999): Esta versión introdujo mejoras en la accesibilidad, así como la capacidad de incorporar hojas de
+   estilo en cascada (CSS) y scripts en el lenguaje de programación JavaScript.
+4. XHTML (2000): XHTML es una variante de HTML que se adhiere más estrictamente a las reglas de XML. No se considera
+   una versión separada de HTML, sino más bien una versión diferente.
+5. HTML5 (2014): Esta es la versión más reciente de HTML.
+   Introdujo una serie de nuevos elementos y atributos que
+   reflejan el uso común de los sitios web modernos.
+   También introdujo el soporte para audio y vídeo sin necesidad de plugins adicionales.
+
+Es importante mencionar que la declaración `<!DOCTYPE html>` en un archivo HTML indica que se está
+utilizando HTML5.
+Después de HTML5, la versión actual es lo que se define como `Living Standard` o `Estándar Vivo`, no se le asigna
+una versión específica, ya que se actualiza y mejora constantemente.
+
+### `<html>`
+
+Después de la declaración `<!DOCTYPE html>`, el siguiente elemento es `<html>`.
+Este elemento envuelve todo el contenido de la página, es la raíz de un documento HTML.
+Todos los demás elementos deben ser descendientes de este elemento `<html>`.
+También tiene un atributo `lang` que se utiliza para especificar el idioma del contenido de la página.
+
+```html
+<html lang="es"></html>
 ```
 
-When using dynamic tags:
+### Head
 
-- **Variable names must be capitalized.** For example, use `Element`, not `element`. Otherwise, Astro will try to render your variable name as a literal HTML tag.
-
-- **Hydration directives are not supported.** When using [`client:*` hydration directives](/en/core-concepts/framework-components/#hydrating-interactive-components), Astro needs to know which components to bundle for production, and the dynamic tag pattern prevents this from working.
-
-### Fragments
-
-Astro supports using either `<Fragment> </Fragment>` or the shorthand `<> </>`.
-
-Fragments can be useful to avoid wrapper elements when adding [`set:*` directives](/en/reference/directives-reference/#sethtml), as in the following example:
-
-```astro title="src/components/SetHtml.astro" "Fragment"
----
-const htmlString = '<p>Raw HTML content</p>'
----
-
-<Fragment set:html={htmlString} />
+```html
+<head>
+	<meta charset="UTF-8" />
+	<meta
+		name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+	/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
 ```
 
-### Differences between Astro and JSX
+Es el primer hijo del elemento `<html>`, contiene los metadatos del documento, como el conjunto de caracteres que se
+está utilizando, el título de la página, enlaces a hojas de estilo, scripts, etc.
 
-Astro component syntax is a superset of HTML. It was designed to feel familiar to anyone with HTML or JSX experience, but there are a couple of key differences between `.astro` files and JSX.
+Dentro del elemento `<head>` podemos encontrar los siguientes elementos:
 
-#### Attributes
+#### `<meta />`
 
-In Astro, you use the standard `kebab-case` format for all HTML attributes instead of the `camelCase` used in JSX. This even works for `class`, which is not supported by React.
-
-```jsx del={1} ins={2} title="example.astro"
-<div className="box" dataValue="3" />
-<div class="box" data-value="3" />
+```html
+<meta charset="UTF-8" />
 ```
 
-#### Multiple Elements
+> Los metadatos son datos sobre los datos, es decir, proporcionan información sobre el documento, no se muestran en la
+> página web, pero son importantes para los motores de búsqueda y para la [Accesibilidad](https://developer.mozilla.org/es/docs/Web/Accessibility).
 
-An Astro component template can render multiple elements with no need to wrap everything in a single `<div>` or `<>`, unlike JavaScript or JSX.
+- `<meta>:` Este elemento lo usamos para específicar metadatos.
+- `UTF-8:` Es un formato de codificación que incluye todos los caracteres posibles en todos los lenguajes humanos.
 
-```astro title="src/components/RootElements.astro"
----
-// Template with multiple elements
----
+#### `<title>`
 
-<p>No need to wrap elements in a single containing element.</p>
-<p>Astro supports multiple root elements in a template.</p>
+```html
+<title>Título del Documento</title>
 ```
 
-#### Comments
+El elemento `<title>` se utiliza para especificar el título del documento, que se muestra en la pestaña del
+navegador.
+También se utiliza para proporcionar un título a la página cuando se agrega a los marcadores o favoritos.
 
-In Astro, you can use standard HTML comments or JavaScript-style comments.
+#### `<link>`
 
-```astro title="example.astro"
----
-
----
-
-<!-- HTML comment syntax is valid in .astro files -->{/* JS comment syntax is also valid */}
+```html
+<link rel="stylesheet" href="ruta-del-archivo.css" />
 ```
 
-:::caution
-HTML-style comments will be included in browser DOM, while JS ones will be skipped. To leave TODO messages or other development-only explanations, you may wish to use JavaScript-style comments instead.
-:::
+El elemento `<link>` se utiliza para vincular un documento con una hoja de estilo externa al documento `HTML`, puede
+ser a una hoja de estilos en el mismo proyecto o a una hoja de estilos en un directorio diferente.
+
+#### `<script>`
+
+```html
+<script src="ruta-del-archivo.js"></script>
+```
+
+El elemento `<script>` se utiliza para vincular un documento con un script externo al documento `HTML`, puede ser a
+un archivo `JS` en el mismo proyecto o a un archivo `JS` en un directorio diferente.
+
+### Body
+
+Después del elemento `<head>`, el segundo hijo del elemento `html` es `<body>`.
+Este elemento contiene todo el contenido que necesitamos mostrar a los usuarios cuando visitan la página web, como
+texto, imágenes, videos, enlaces, etc.
+
+Todo lo que se coloca dentro del elemento `body` es lo que se muestra en el navegador.
+Aquí es donde se encuentra el mayor trabajo de codificación `HTML`.
+
+## Glosario
+
+- **HTML**: Hyper Text Markup Language
+- **CSS**: Cascading Style Sheets
+- **JS**: JavaScript
+- **DOM**: Document Object Model
+- **WHATWG**: Web Hypertext Application Technology Working Group
+- **Living Standard**: Estándar Vivo
+
+## Bibliografía
+
+- [HTML en MDN](https://developer.mozilla.org/es/docs/Web/HTML)
+- [HTML: The Living Standard](https://html.spec.whatwg.org/dev/introduction.html#introduction)
