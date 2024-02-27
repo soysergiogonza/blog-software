@@ -1,0 +1,140 @@
+---
+title: 'Git & GitHub'
+description: 'Comandos básicos de Git y GitHub'
+pubDate: 'Febrero 27 2024'
+heroImage: '../../../public/git-logo.svg'
+category: 'Desarrollo de Software'
+tags: ['Git', 'GitHub', 'Comandos', 'CLI']
+---
+
+[Descargar Git Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+# Acerca del Control de Versiones
+
+Un control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo
+largo del tiempo, de modo que puedas recuperar versiones específicas más adelante. Usar un sistema de control de
+versiones (VCS, por sus siglas en inglés) te permite revertir archivos a un estado anterior, revertir todo el
+proyecto, comparar cambios a lo largo del tiempo, ver quién modificó por última vez algo que podría estar causando,
+saber quién introdujo un problema y cuándo, y mucho más. Usar un VCS también significa que si arruinas o pierdes
+archivos, entonces pueden ser recuperados con fácilidad. Además, puedes trabajar en diferentes ramas de desarrollo.
+
+# Métodos de Control de Versiones
+
+## Versiones Locales
+
+Tal vez te preguntes por qué no simplemente guardar cada cambio en un archivo o carpeta diferente.\
+Imagina lo siguiente.\
+
+> Tienes un archivo llamado `proyecto.txt` y haces cambios, guardas el archivo, pero no quieres perder algunas cosas
+> que tienes en el archivo anterior, ya que el nuevo sufrió una modificación grande y prefieres cuidar el anterior
+> `por si acaso`.
+> Entonces creas un archivo llamado `proyecto_v2.txt`, luego cambias de opinion y lo rehaces totalmente, pero obvio
+> conservas `proyecto_v2.txt` y creas un `proyecto_v3.txt`.\
+> Ahora imagina que tienes 10 archivos, y cada uno tiene 10 versiones, y cada versión tiene 10 cambios. ¿Cuántos
+> archivos tienes? ¿Cuántos cambios tienes? ¿Cuántos archivos tienes que revisar para encontrar un cambio en
+> particular? ¿Cuántos archivos tienes que enviar a alguien? ¿Cuántos archivos tienes que respaldar?
+
+De hecho un método que prácticamente todos hemos usado alguna vez, es crear una carpeta para la versión inicial de
+un proyecto y luego después de varias versiones, estás a punto de terminar el proyecto y creas una versión final,
+haces un cambio y duplicas el proyecto y le cambias la versión por `MiProyecto_FinalFinal`.\
+Finalmente resultas con un montón de carpetas, algo como esto:
+
+```
+MiProyecto
+MiProyecto_v2
+MiProyecto_v3
+MiProyecto_v4
+MiProyecto_v5
+MiProyecto_v6
+MiProyecto_v7
+MiProyecto_vf
+MiProyecto_vf2
+MiProyecto_vf3
+MiProyecto_vf4
+MiProyecto_vf_final
+MiProyecto_vf_final_porfin
+```
+
+## Versiones Centralizadas
+
+Luego nos encontramos con el problema de que necesitamos colaborar con otras personas en un proyecto, y es aquí
+donde los sistemas de control de versiones centralizados entran en juego. En el ejemplo anterior con las versiones
+locales, teníamos un proyecto y lo debíamos enviar a otra persona por correo electrónico, por la nube, o hace
+tiempo usábamos una USB. Pero, ¿qué pasa si dos personas hacen cambios al mismo tiempo? ¿Y si la persona que tiene el
+archivo más reciente está enferma? ¿Y si la persona que tiene el archivo más reciente se va de vacaciones y no
+puede entregar la USB?
+
+Realmente tenemos muchas posibilidades de que algo salga mal. Los sistemas de control de versiones centralizados se
+crearon para solucionar estos problemas. Estos sistemas tienen un servidor donde se envían los cambios, las
+personas con permiso a ese servidor pueden obtener la última versión del proyecto y ver quién hizo cambios, cuándo
+los hizo, a qué hora los hizo, por qué los hizo, y por supuesto es posible revertir los cambios si algo sale mal.
+
+> Ahora entremos en lo que realmente nos interesa, Git.
+
+# Git
+
+> Git es un sistema de control de versiones distribuido gratuito y de código abierto diseñado para manejar todo,
+> desde proyectos pequeños hasta proyectos muy grandes con velocidad y eficiencia. Es muy fácil de aprender y ocupa
+> muy poco espacio con un rendimiento increíblemente rápido.
+
+La mayoría de las operaciones de Git son locales, es decir, no necesitas estar conectado a internet o a otro equipo
+para hacer cambios, de hecho tenemos la posibilidad de ver el historial de cambios que hemos realizado durante todo
+el proyecto.
+
+A continuación veremos algunos comandos básicos de Git.
+
+## Comandos Básicos
+
+```bash
+# Inicializar un repositorio
+git init
+```
+
+```bash
+# Agregar archivos al área de preparación
+git add <archivo>
+```
+
+```bash
+# Confirmar cambios
+git commit -m "Mensaje del commit"
+```
+
+```bash
+# Agregar y confirmar cambios
+git commit -am "Mensaje del commit"
+```
+
+```bash
+# Modificar el mensaje del último commit
+git commit --amend -m "Nuevo mensaje"
+```
+
+```bash
+# Ver el estado de los archivos
+git status
+```
+
+```bash
+# Ver el historial de cambios
+git log
+```
+
+```bash
+# Ver el historial de cambios de un archivo
+git log <archivo>
+```
+
+```bash
+# Ver el historial de cambios de un archivo con detalles
+git log -p <archivo>
+```
+
+```bash
+
+
+# Bibliografía
+
+- https://git-scm.com/
+- https://es.wikipedia.org/wiki/Git
+```
