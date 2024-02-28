@@ -1,0 +1,66 @@
+---
+title: 'Qué es SQL'
+description: 'Instalaciones necesarias para comenzar a trabajar con Bases de Datos Relacionales'
+pubDate: 'Febrero 28 2024'
+heroImage: '../../../public/assets/images/rdbms.png'
+category: 'Análisis y Diseño de Bases de Datos'
+tags: ['Bases de Datos', 'SQL', 'MySQL']
+---
+
+# Qué es una Base de Datos Relacional
+
+Una base de datos relacional es una colección de datos organizados en tablas. Cada tabla es un conjunto de datos que se
+compone de filas y columnas, donde las filas representan los registros y las columnas representan los campos de los
+registros, casi como una hoja de cálculo de Excel.
+
+La mayoría de las bases de datos relacionales tienen un esquema de diseño que define la estructura de la base de
+datos. No podemos llegar e inventar cosas de la nada, debemos seguir un esquema de diseñado para insertar datos en
+la base de datos.\
+Un ejemplo puede ser cuando creamos una base de datos de direcciones, entonces tenemos la nomenclatura, barrio, la
+ciudad, departamento, país, etc. Cada uno de estos campos debe ser definido en el esquema de diseño de la base de
+datos. Pero si alguién intenta ingresar un comentario en el campo de nomenclatura, la base de datos no lo permitirá
+porque está fuera del esquema definido.
+
+# Qué es SQL
+
+`Structured Query Language` `Leguaje de Consultas Estructuradas`\
+Es un lenguaje de consultas estructurado que se utiliza para realizar consultas, actualizaciones, inserciones,
+eliminaciones y creación de bases de datos relacionales.
+Cuando hablamos de SQL también nos referimos a Bases de Datos Relacionales lo que frecuentemente se conoce como
+`RDBMS` `(Relational Database Management System)`, en español `Sistema de Gestión de Bases de Datos Relacionales`.
+SQL es un lenguaje de programación que se utiliza para trabajar con bases de datos relacionales. SQL es el acrónimo
+de `Structured Query Language`, que significa `Lenguaje de Consulta Estructurada`.
+
+# MySQL
+
+En nuestras clases vamos a trabajar con MySQL, es probablemente el sistema de gestión de bases de datos relacionales
+más popular y ampliamente utilizado en la actualidad.
+
+## Instalación de MySQL
+
+Para instalar MySQL en tu computadora, sigue los siguientes pasos:
+
+1. Descarga el instalador de MySQL desde el siguiente enlace: [MySQL](https://dev.mysql.com/downloads/mysql/)
+2. Ejecuta el instalador y sigue los pasos que te indica el asistente de instalación.
+3. Una vez instalado, abre el programa y verifica que el servicio de MySQL esté corriendo.
+
+## Instalación de MySQL Workbench
+
+1. Descarga el instalador de MySQL Workbench desde el siguiente enlace: [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
+2. Ejecuta el instalador y sigue los pasos que te indica el asistente de instalación.
+3. Una vez instalado, abre el programa y verifica que el servicio de MySQL esté corriendo.
+
+## Configuración de MySQL Workbench
+
+1. Abre MySQL Workbench
+2. En la pantalla de inicio, selecciona la opción `New Connection`
+3. En la ventana que se abre, ingresa los datos de conexión a tu servidor de MySQL. Si estás trabajando en tu computadora
+   local, los datos de conexión serán los siguientes:
+   - Connection Name: `Localhost`
+   - Connection Method: `Standard (TCP/IP)`
+   - Hostname: root
+   - Port: 3306
+   - Username: root
+   - Password: (deja este campo en blanco por ahora)
+4. Haz clic en el botón `Test Connection` para verificar que la conexión se haya establecido correctamente.
+5. Si la conexión se estableció correctamente, haz clic en el botón `OK` para guardar la configuración.
