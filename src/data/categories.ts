@@ -4,5 +4,6 @@ export const CATEGORIES = [
 	'Desarrollo de Software',
 	'Requisitos del Software',
 	'Negociación de la Tecnología e Implementación',
-	'Control de Calidad'
+	'Control de Calidad',
+	'Arquitectura de Software'
 ] as const
