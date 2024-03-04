@@ -1,0 +1,99 @@
+---
+title: 'Git & GitHub'
+description: 'Comandos básicos de Git y GitHub'
+created: 'Febrero 27 2024'
+heroImage: '../../../public/assets/images/github.avif'
+category: 'Desarrollo de Software'
+tags: ['Git', 'GitHub']
+---
+
+[Descargar Git Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+# Git
+
+> Git es un sistema de control de versiones distribuido gratuito y de código abierto diseñado para manejar todo,
+> desde proyectos pequeños hasta proyectos muy grandes con velocidad y eficiencia. Es muy fácil de aprender y ocupa
+> muy poco espacio con un rendimiento increíblemente rápido.
+
+La mayoría de las operaciones de Git son locales, es decir, no necesitas estar conectado a internet o a otro equipo
+para hacer cambios, de hecho tenemos la posibilidad de ver el historial de cambios que hemos realizado durante todo
+el proyecto.
+
+A continuación veremos algunos comandos básicos de Git utilizados en forma local.
+
+## Comandos Básicos Locales
+
+```bash
+# Inicializar un repositorio
+git init
+```
+
+```bash
+# Agregar archivos al área de preparación
+git add <archivo>
+```
+
+```bash
+# Confirmar cambios
+git commit -m "Mensaje del commit"
+```
+
+```bash
+# Agregar y confirmar cambios
+git commit -am "Mensaje del commit"
+```
+
+```bash
+# Modificar el mensaje del último commit
+git commit --amend -m "Nuevo mensaje"
+```
+
+```bash
+# Ver el estado de los archivos
+git status
+```
+
+```bash
+# Ver el historial de cambios
+git log
+```
+
+Estos son solamente algunos comandos de Git que funcionan en forma local, pero Git también nos permite trabajar de
+forma remota, es decir, subir nuestros cambios a un servidor remoto, como por ejemplo GitHub.
+
+## Comandos Básicos Remotos
+
+```bash
+# Agregar un repositorio remoto
+git remote add origin <url>
+```
+
+```bash
+# Subir cambios al servidor remoto
+git push origin master
+```
+
+```bash
+# Descargar cambios del servidor remoto
+git pull origin master
+```
+
+```bash
+# Clonar un repositorio remoto
+git clone <url>
+```
+
+# GitHub
+
+GitHub es una plataforma de desarrollo colaborativo para alojar proyectos utilizando el sistema de control de
+versiones Git.
+Se utiliza principalmente para la creación de código fuente de programas de computadora.
+También podríamos decir que es una red social para programadores.
+
+A continuación veremos como realizar la configuración inicial de un repositorio en Git.
+
+# Bibliografía
+
+- https://git-scm.com/
+- https://es.wikipedia.org/wiki/Git
+- [GitHub Image](https://unsplash.com/es/fotos/un-dado-blanco-con-un-logotipo-negro-de-github-HLQDfaJUTVI)
