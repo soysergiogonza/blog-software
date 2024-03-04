@@ -8,14 +8,20 @@ const blog = defineCollection({
 			title: z.string().max(80),
 			description: z.string(),
 			// Transform string to Date object
-			pubDate: z
+			created: z
 				.string()
 				.or(z.date())
 				.transform((val) => new Date(val)),
+			updated: z
+				.string()
+				.or(z.date())
+				.transform((val) => new Date(val))
+				.optional(),
 			heroImage: image(),
 			category: z.enum(CATEGORIES),
 			tags: z.array(z.string()),
 			draft: z.boolean().default(false)
+			// optional fields
 		})
 })
 
